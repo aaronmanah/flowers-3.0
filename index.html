@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Consuelo 🌼</title>
+    <style>
+        :root {
+            --color-amarillo: #ffeb3b;
+            --brillo-oro: #fbc02d;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        /* Estrellas de fondo */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: blink 2s infinite ease-in-out;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        /* Contenedor Principal */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+            width: 400px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            color: var(--color-amarillo);
+            text-shadow: 0 0 10px var(--brillo-oro);
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #fff9c4;
+            margin-bottom: 15px;
+        }
+        /* Botón Interactiva */
+        .btn-garden {
+            background: linear-gradient(135deg, #fbc02d, #ffeb3b);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2c1a04;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(251, 192, 45, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+        .btn-garden:active {
+            transform: scale(0.95);
+        }
+        /* Carta Sorpresa Extendida */
+        .card-secret {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            animation: fadeIn 1.2s forwards;
+            border-left: 4px solid var(--color-amarillo);
+            max-height: 60vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilos de los Pétalos Florales */
+        .petal {
+            position: fixed;
+            z-index: 5;
+            opacity: 0.85;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -5%; transform: translateX(0) rotate(0deg); }
+            100% { top: 105%; transform: translateX(120px) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container" id="stars"></div>
+
+    <div class="container">
+        <h1>Para ti, Consuelo 💛</h1>
+        <p>Hay regalos que no caben en una caja... pero sí pueden cruzar cualquier distancia.</p>
+        
+        <button class="btn-garden" id="btnAction" onclick="makeItBloom()">Abrir mi regalo ✨</button>
+
+        <div class="card-secret" id="secretCard">
+            <p><strong>Hola Consuelo,</strong></p>
+            <p>Hoy quería regalarte flores amarillas. Quería poder llegar con un ramo en las manos, elegirlas una por una y verte recibirlas. Pero esta vez la distancia, el tiempo y las circunstancias no me lo permitieron.</p>
+            <p>Así que pensé que, si no podía llevarte las flores, podía hacer que ellas encontraran otra manera de llegar hasta ti.</p>
+            <p>Elegí cuatro porque sé que son especiales: <strong>tulipanes, girasoles, claveles y peonías.</strong> 🌷🌻🌺🌸</p>
+            <p>Y aunque estas no puedan perfumar una habitación ni durar varios días en un florero, llevan algo único: <strong>el pensamiento constante que tuve en ti mientras las creaba.</strong></p>
+            <p>Si hoy recibes flores amarillas, que estas digitales también cuenten. Porque regalar flores no significa solo estar cerca... Significa encontrar una forma de decir: <em>"Pensé en ti"</em>. Y hoy, pensé muchísimo en ti.</p>
+            <p style="text-align: center; font-weight: bold; color: var(--color-amarillo); font-size: 1.15rem; margin-top: 20px;">
+                ¡Feliz 21 de Septiembre, mi culito forever! 🤍
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Fondo de estrellas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = Math.random() * 3 + 'px';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Activa la lluvia de flores variadas
+        function makeItBloom() {
+            document.getElementById('secretCard').style.display = 'block';
+            document.getElementById('btnAction').style.display = 'none';
+
+            for (let i = 0; i < 60; i++) {
+                setTimeout(createPetal, i * 120);
+            }
+        }
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            
+            const size = Math.random() * 14 + 10;
+            petal.style.width = size + 'px';
+            petal.style.height = size * 1.3 + 'px';
+            petal.style.left = Math.random() * 100 + '%';
+            
+            // Simulación de los 4 tipos de flores solicitados usando colores y formas
+            const flowerTypes = [
+                { color: '#ffeb3b', radius: '0 70% 0 70%' },  /* Girasol / Amarillo */
+                { color: '#ff4081', radius: '50% 50% 50% 50%' }, /* Peonía / Rosado */
+                { color: '#ff5252', radius: '0 0 70% 70%' },    /* Tulipán / Rojo */
+                { color: '#e040fb', radius: '30% 70% 30% 70%' }  /* Clavel / Lila-Morado */
+            ];
+            
+            const chosenType = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            petal.style.backgroundColor = chosenType.color;
+            petal.style.borderRadius = chosenType.radius;
+            petal.style.boxShadow = `0 0 8px ${chosenType.color}80`;
+            
+            const duration = Math.random() * 4 + 3;
+            petal.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+                createPetal();
+            }, duration * 1000);
+        }
+    </script>
+</body>
+</html>
